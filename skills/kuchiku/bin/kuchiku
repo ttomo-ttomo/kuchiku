@@ -1,0 +1,15 @@
+#!/bin/sh
+# OS とCPUに合う実行ファイルを選んで起動する（ビルド済みは build.sh で作る）
+d=$(cd "$(dirname "$0")" && pwd)
+case "$(uname -s)" in
+  Linux) os=linux ;;
+  Darwin) os=darwin ;;
+  MINGW*|MSYS*|CYGWIN*) os=windows; ext=.exe ;;
+  *) echo "未対応のOS: $(uname -s)" >&2; exit 2 ;;
+esac
+case "$(uname -m)" in
+  x86_64|amd64) arch=amd64 ;;
+  arm64|aarch64) arch=arm64 ;;
+  *) echo "未対応のCPU: $(uname -m)" >&2; exit 2 ;;
+esac
+exec "$d/kuchiku-$os-$arch$ext" "$@"

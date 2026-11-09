@@ -1,0 +1,8 @@
+{
+  "name": "kuchiku",
+  "description": "日本語の文章（Markdown）から、主眼に関係ない節・再掲・前置き・中身のない文を見つけ、削除だけで短くする",
+  "version": "0.2.0",
+  "license": "MIT",
+  "author": { "name": "ttomo-ttomo" },
+  "repository": "https://github.com/ttomo-ttomo/kuchiku"
+}
